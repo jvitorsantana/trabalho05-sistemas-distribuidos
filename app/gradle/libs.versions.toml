@@ -1,0 +1,13 @@
+[versions]
+amqp = "5.37.0"
+jackson = "2.22.3"
+smile = "6.3.0"
+slf4j = "2.0.18"
+
+[libraries]
+amqp-client = { module = "com.rabbitmq:amqp-client", version.ref = "amqp" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+jackson-jsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson" }
+smile-core = { module = "com.github.haifengl:smile-core", version.ref = "smile" }
+smile-nlp = { module = "com.github.haifengl:smile-nlp", version.ref = "smile" }
+slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j" }
