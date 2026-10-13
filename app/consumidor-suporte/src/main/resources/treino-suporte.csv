@@ -1,0 +1,36 @@
+ACESSO;Não consigo entrar na minha conta, a senha não é aceita.
+ACESSO;Esqueci a senha e preciso redefinir meu acesso.
+ACESSO;Meu login foi bloqueado depois de errar a senha.
+ACESSO;O sistema diz usuário ou senha incorretos.
+ACESSO;Não recebi o e-mail de recuperação de senha.
+ACESSO;O código de verificação não chega no meu celular.
+ACESSO;Minha conta está bloqueada e não consigo fazer login.
+ACESSO;Não tenho permissão para acessar essa tela.
+ACESSO;Aparece acesso negado quando tento entrar no painel.
+ACESSO;Meu usuário está inválido e não consigo autenticar.
+ACESSO;Preciso desbloquear minha conta e trocar a senha.
+ACESSO;A autenticação falha mesmo com o usuário e a senha corretos.
+DESEMPENHO;O sistema está lento demais hoje.
+DESEMPENHO;A página demora muito para carregar.
+DESEMPENHO;O aplicativo trava toda hora e fica congelado.
+DESEMPENHO;O relatório demora vários minutos para abrir.
+DESEMPENHO;O sistema ficou pesado depois da atualização.
+DESEMPENHO;Muita lentidão para processar os dados.
+DESEMPENHO;A tela congela e o sistema não responde.
+DESEMPENHO;O uso de memória e de CPU está muito alto.
+DESEMPENHO;O processamento está lento e trava no meio.
+DESEMPENHO;Tudo carrega devagar, o desempenho está péssimo.
+DESEMPENHO;O aplicativo está travando e demorando para responder.
+DESEMPENHO;As consultas demoram uma eternidade e deixam a tela travada.
+CONEXAO;A internet está caindo toda hora.
+CONEXAO;Não consigo conectar ao servidor.
+CONEXAO;A conexão cai e volta o tempo todo.
+CONEXAO;O wifi fica desconectando sozinho.
+CONEXAO;Estou sem rede e sem sinal de internet.
+CONEXAO;Dá erro de timeout na conexão com o servidor.
+CONEXAO;A VPN não conecta e a conexão é recusada.
+CONEXAO;A rede está instável e o sistema fica offline.
+CONEXAO;Perdi a conexão com o banco de dados.
+CONEXAO;O servidor está fora do ar e não responde ao ping.
+CONEXAO;O aplicativo mostra offline mesmo com a internet funcionando.
+CONEXAO;O sinal do wifi está fraco e a conexão cai a cada poucos minutos.
