@@ -20,8 +20,7 @@ services:
   gerador:
     build:
       context: ./app
-      args:
-        MODULO: gerador
+      dockerfile: gerador/Dockerfile
     container_name: gerador
     depends_on:
       rabbitmq:
@@ -36,8 +35,7 @@ services:
   consumidor-sentimento:
     build:
       context: ./app
-      args:
-        MODULO: consumidor-sentimento
+      dockerfile: consumidor-sentimento/Dockerfile
     container_name: consumidor-sentimento
     depends_on:
       rabbitmq:
@@ -51,8 +49,7 @@ services:
   consumidor-suporte:
     build:
       context: ./app
-      args:
-        MODULO: consumidor-suporte
+      dockerfile: consumidor-suporte/Dockerfile
     container_name: consumidor-suporte
     depends_on:
       rabbitmq:
