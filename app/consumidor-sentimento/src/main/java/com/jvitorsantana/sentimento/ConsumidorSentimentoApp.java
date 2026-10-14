@@ -24,7 +24,7 @@ public class ConsumidorSentimentoApp {
     Connection con = ConexaoRabbit.abrir(NOME);
     Channel canal = con.createChannel();
     Topologia.declarar(canal);
-    canal.basicQos(1); // só recebe a próxima mensagem depois de confirmar a atual
+    canal.basicQos(1);
 
     DeliverCallback aoReceber = (consumerTag, entrega) -> {
       long tag = entrega.getEnvelope().getDeliveryTag();
@@ -35,15 +35,15 @@ public class ConsumidorSentimentoApp {
         }
 
         Classificacao resultado = classificador.classificar(mensagem.conteudo());
-        pausar(); // processa mais devagar do que a taxa de chegada
+        pausar();
 
         System.out.printf("[%s] %-8s (%3.0f%%) | %s | %s | %s%n",
             NOME, resultado.sentimento(), resultado.confianca() * 100,
             mensagem.id(), mensagem.dataHora(), mensagem.conteudo());
-        canal.basicAck(tag, false); // ACK manual
+        canal.basicAck(tag, false);
       } catch (Exception e) {
         System.out.printf("[%s] ERRO, enviando para a DLQ: %s%n", NOME, e.getMessage());
-        canal.basicNack(tag, false, false); // requeue=false: a fila encaminha para a DLX
+        canal.basicNack(tag, false, false);
       }
     };
 

@@ -17,6 +17,52 @@ services:
     networks:
       - rede-mensagens
 
+  gerador:
+    build:
+      context: ./app
+      args:
+        MODULO: gerador
+    container_name: gerador
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      RABBITMQ_HOST: rabbitmq
+      MENSAGENS_POR_SEGUNDO: 5
+      ERRO_A_CADA: 10
+    networks:
+      - rede-mensagens
+
+  consumidor-sentimento:
+    build:
+      context: ./app
+      args:
+        MODULO: consumidor-sentimento
+    container_name: consumidor-sentimento
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      RABBITMQ_HOST: rabbitmq
+      ATRASO_MS: 1000
+    networks:
+      - rede-mensagens
+
+  consumidor-suporte:
+    build:
+      context: ./app
+      args:
+        MODULO: consumidor-suporte
+    container_name: consumidor-suporte
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      RABBITMQ_HOST: rabbitmq
+      ATRASO_MS: 1000
+    networks:
+      - rede-mensagens
+
 networks:
   rede-mensagens:
     driver: bridge

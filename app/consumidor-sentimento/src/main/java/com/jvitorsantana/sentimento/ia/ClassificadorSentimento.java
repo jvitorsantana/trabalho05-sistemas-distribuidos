@@ -18,14 +18,13 @@ public final class ClassificadorSentimento {
 
   private static final String ARQUIVO_TREINO = "/treino-sentimento.csv";
 
-  private final Tokenizador tokenizador = new Tokenizador();
   private final Map<String, Integer> vocabulario = new HashMap<>();
   private final DiscreteNaiveBayes modelo;
   private final int exemplos;
 
   private ClassificadorSentimento(List<String> textos, List<Sentimento> rotulos) {
     for (String texto : textos) {
-      for (String termo : tokenizador.tokenizar(texto)) {
+      for (String termo : palavras(texto)) {
         vocabulario.putIfAbsent(termo, vocabulario.size());
       }
     }
@@ -86,12 +85,16 @@ public final class ClassificadorSentimento {
 
   private int[] vetorizar(String texto) {
     int[] contagens = new int[vocabulario.size()];
-    for (String termo : tokenizador.tokenizar(texto)) {
+    for (String termo : palavras(texto)) {
       Integer indice = vocabulario.get(termo);
       if (indice != null) {
         contagens[indice]++;
       }
     }
     return contagens;
+  }
+
+  private static String[] palavras(String texto) {
+    return texto.toLowerCase().split("[^\\p{L}]+");
   }
 }

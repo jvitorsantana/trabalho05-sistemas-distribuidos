@@ -13,7 +13,6 @@ import java.util.Map;
 
 public class ClassificadorSuporte {
 
-  private final Tokenizador tokenizador = new Tokenizador();
   private final Map<String, Integer> vocabulario = new HashMap<>();
   private final DiscreteNaiveBayes modelo;
 
@@ -21,7 +20,6 @@ public class ClassificadorSuporte {
     List<String> textos = new ArrayList<>();
     List<Categoria> categorias = new ArrayList<>();
 
-    // lê o arquivo de treino, cada linha é CATEGORIA;texto
     try (BufferedReader leitor = new BufferedReader(new InputStreamReader(
         getClass().getResourceAsStream("/treino-suporte.csv"), StandardCharsets.UTF_8))) {
       String linha;
@@ -32,9 +30,8 @@ public class ClassificadorSuporte {
       }
     }
 
-    // cada palavra do treino ganha uma posição no vetor
     for (String texto : textos) {
-      for (String palavra : tokenizador.tokenizar(texto)) {
+      for (String palavra : palavras(texto)) {
         if (!vocabulario.containsKey(palavra)) {
           vocabulario.put(palavra, vocabulario.size());
         }
@@ -48,7 +45,6 @@ public class ClassificadorSuporte {
       y[i] = categorias.get(i).ordinal();
     }
 
-    // treina o Naive Bayes do Smile
     modelo = new DiscreteNaiveBayes(
         DiscreteNaiveBayes.Model.MULTINOMIAL, Categoria.values().length, vocabulario.size());
     modelo.update(x, y);
@@ -63,14 +59,17 @@ public class ClassificadorSuporte {
     return new Classificacao(Categoria.values()[classe], probabilidades[classe]);
   }
 
-  // conta quantas vezes cada palavra do vocabulário aparece no texto
   private int[] vetorizar(String texto) {
     int[] contagens = new int[vocabulario.size()];
-    for (String palavra : tokenizador.tokenizar(texto)) {
+    for (String palavra : palavras(texto)) {
       if (vocabulario.containsKey(palavra)) {
         contagens[vocabulario.get(palavra)]++;
       }
     }
     return contagens;
+  }
+
+  private static String[] palavras(String texto) {
+    return texto.toLowerCase().split("[^\\p{L}]+");
   }
 }

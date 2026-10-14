@@ -28,7 +28,8 @@ public final class MensagemJson {
     try {
       return MAPPER.readValue(corpo, Mensagem.class);
     } catch (JsonProcessingException e) {
-      throw new MensagemInvalidaException(e.getOriginalMessage(), e);
+            String motivo = e.getCause() != null ? e.getCause().getMessage() : e.getOriginalMessage();
+      throw new MensagemInvalidaException(motivo, e);
     } catch (IOException e) {
       throw new MensagemInvalidaException(e.getMessage(), e);
     }
