@@ -3,7 +3,7 @@
 Atividade 05 da disciplina de Sistemas Distribuídos (UFPI — CSHNB). Um gerador publica avaliações de produtos e solicitações de suporte no RabbitMQ, e dois consumidores independentes classificam essas mensagens com IA embarcada, usando a biblioteca Smile.
 
 **Aluno:** João Vitor Santana Lima (20249006849)  
-**Vídeo de demonstração:** [Vídeo no YouTube](COLOQUE_AQUI_O_LINK_DO_VIDEO)
+**Vídeo de demonstração:** [Vídeo no YouTube](https://youtu.be/-OMzGMnmGSo)
 
 ## Tecnologias
 
@@ -210,27 +210,27 @@ Os conjuntos de treino foram escritos à mão para o mesmo domínio das mensagen
 
 ### Containers em execução
 
-![Containers](assets/fig_01.png)
+![Containers](docs/assets/fig_01.png)
 
 ### Exchanges
 
-![Exchanges](assets/fig_02.png)
+![Exchanges](docs/assets/fig_02.png)
 
 ### Bindings do topic exchange
 
-![Bindings](assets/fig_03.png)
+![Bindings](docs/assets/fig_03.png)
 
 ### Filas crescendo
 
-![Filas](assets/fig_04-01.png)
-![Filas3sDepois](assets/fig_04-02.png)
+![Filas](docs/assets/fig_04-01.png)
+![Filas3sDepois](docs/assets/fig_04-02.png)
 
 ### Classificação no console
 Logs Consumidor Sentimento
-![Logs1](assets/fig_05-01.png)
+![Logs1](docs/assets/fig_05-01.png)
 Logs Consumidor Suporte
-![Logs2](assets/fig_05-02.png)
+![Logs2](docs/assets/fig_05-02.png)
 
 ### Mensagem na DLQ
 
-![DLQ](assets/fig_06.png)
+![DLQ](docs/assets/fig_06.png)
